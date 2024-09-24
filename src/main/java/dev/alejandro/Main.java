@@ -48,19 +48,17 @@ public class Main {
     private static void withStreams(List<Traveler> travelers) {
 
         System.out.println("Traveler names:");
-        var travelerNames = travelers
+        travelers
                 .stream()
                 .map(Traveler::name)
-                .toList();
-        travelerNames.forEach(System.out::println);
+                .forEach(System.out::println);
 
         System.out.println("Trip names:");
-        var tripNames = travelers
+        travelers
                 .stream()
                 .map(Traveler::trips)
                 .flatMap(Collection::stream)
                 .map(Trip::name)
-                .toList();
-        tripNames.forEach(System.out::println);
+                .forEach(System.out::println);
     }
 }
